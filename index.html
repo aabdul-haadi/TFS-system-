@@ -18,23 +18,24 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      transition: opacity 0.6s ease;
-      animation: fadeIn 0.6s ease-in-out forwards;
+      transition: opacity 1.7s ease, visibility 1.7s ease;
+      /* Slow fade-out */
+      animation: fadeIn 0.3s ease-in-out forwards;
+      /* Fast fade-in */
+      opacity: 1;
+      visibility: visible;
     }
 
     #loader.fade-out {
       opacity: 0;
-      pointer-events: none;
+      visibility: hidden;
     }
 
     /* Clean Logo Container */
     .logo-ring {
       width: 160px;
-      /* Increased the width */
       height: 160px;
-      /* Increased the height */
       margin-bottom: 2rem;
-      /* Increased margin for spacing */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -42,9 +43,7 @@
 
     .logo-ring img {
       width: 180px;
-      /* Increased the logo size */
       height: 180px;
-      /* Increased the logo size */
       object-fit: contain;
       filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
     }
@@ -52,20 +51,20 @@
     /* Text */
     #loader h1 {
       font-size: 2rem;
-      /* Slightly increased font size */
       color: white;
       font-weight: 700;
       letter-spacing: 1px;
       margin-bottom: 0.25rem;
-      animation: fadeSlide 0.8s ease-out 0.3s forwards;
+      animation: fadeSlide 0.5s ease-out 0.3s forwards;
+      /* Fast fade-in */
       opacity: 0;
     }
 
     #loader p {
       color: #cbd5e1;
       font-size: 1rem;
-      /* Slightly increased font size */
-      animation: fadeSlide 0.8s ease-out 0.5s forwards;
+      animation: fadeSlide 0.5s ease-out 0.5s forwards;
+      /* Fast fade-in */
       opacity: 0;
     }
 
@@ -124,7 +123,7 @@
       const loader = document.getElementById('loader');
       if (loader) {
         loader.classList.add('fade-out');
-        setTimeout(() => loader.remove(), 1500);
+        setTimeout(() => loader.remove(), 2500); // Ensure timeout matches slow fade-out duration (2s + small buffer)
       }
     });
   </script>

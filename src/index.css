@@ -1,3 +1,70 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Allow the body to scroll if the content overflows */
+/* Global body settings */
+html, body {
+  height: 100%; /* Ensure full height for scrolling */
+  margin: 0;    /* Remove any default margin */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Root container setup for scrolling */
+#root {
+  height: 100%; /* Make sure the root container takes full height */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Ensure the landing page container is scrollable */
+.landing-page-container {
+  min-height: 100vh; /* Ensure full viewport height */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Allow scrolling on the landing page */
+  padding-bottom: 50px; /* To avoid footer overlap with content */
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling */
+body::-webkit-scrollbar {
+  width: 12px; /* Set width for vertical scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #2d2d2d; /* Dark track background */
+  border-radius: 10px; /* Rounded track corners */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #888; /* Light grey thumb */
+  border-radius: 10px; /* Rounded thumb corners */
+  border: 3px solid #2d2d2d; /* Thin border to match the track */
+}
+
+/* Scrollbar thumb hover effect */
+body::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker thumb on hover */
+}
+
+/* Scrollbar for horizontal scrolling (if needed) */
+body::-webkit-scrollbar-horizontal {
+  height: 12px;
+}
+
+body::-webkit-scrollbar-track-horizontal {
+  background: #2d2d2d;
+}
+
+body::-webkit-scrollbar-thumb-horizontal {
+  background: #888;
+}
+
+body::-webkit-scrollbar-thumb-horizontal:hover {
+  background: #555;
+}

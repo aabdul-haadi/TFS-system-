@@ -59,7 +59,7 @@ const Login: React.FC = () => {
               <div className="mx-auto h-20 w-20 flex items-center justify-center rounded-full bg-primary-100 mb-4">
                 <School className="h-12 w-12 text-primary-600" />
               </div>
-              <h1 className="text-3xl font-bold text-gray-900">Welcome Back</h1>
+              <h1 className="text-3xl font-bold text-gray-900">The Florence School</h1>
               <p className="mt-2 text-sm text-gray-600">Sign in to access your account</p>
             </motion.div>
 
