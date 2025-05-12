@@ -4,6 +4,7 @@ import { Menu, X, LogIn } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { NavItem } from '../types';
 
+
 const navItems: NavItem[] = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },

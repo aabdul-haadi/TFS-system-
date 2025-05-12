@@ -34,9 +34,9 @@ const Hero: React.FC = () => {
           className="mb-8"
         >
           <motion.img 
-            src="/src/logo.png"
+            src="/src/logoo.png"
             alt="School Logo"
-            className="w-32 h-32 mx-auto object-contain"
+            className="w-36 h-36 mx-auto object-contain"
             whileHover={{ scale: 1.1 }}
             transition={{ type: "spring", stiffness: 200 }}
           />

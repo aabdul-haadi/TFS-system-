@@ -1,6 +1,9 @@
 import React from 'react';
-import { Library, FlaskRound as Flask, Computer, Book } from 'lucide-react';
+import { FlaskRound as Flask, Computer } from 'lucide-react';
 import { motion } from 'framer-motion';
+import img from './facilities.jpg'; // Import the background image
+import compImg from './comp.jpeg'; // Import the Computer Labs image
+import labImg from './lab.jpeg';  // Import the Science Laboratories image
 
 interface FacilityProps {
   icon: React.ReactNode;
@@ -14,33 +17,24 @@ const facilities: FacilityProps[] = [
     icon: <Computer className="h-12 w-12" />,
     title: "Computer Labs",
     description: "State-of-the-art computer labs equipped with the latest technology to develop essential digital literacy skills.",
-    image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg"
+    image: compImg, // Using the imported image for Computer Labs
   },
   {
     icon: <Flask className="h-12 w-12" />,
     title: "Science Laboratories",
     description: "Fully equipped science labs that provide hands-on learning experiences in physics, chemistry, and biology.",
-    image: "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg"
+    image: labImg, // Using the imported image for Science Laboratories
   },
-  {
-    icon: <Library className="h-12 w-12" />,
-    title: "Modern Library",
-    description: "A vast collection of books, digital resources, and quiet study spaces for research and learning.",
-    image: "https://images.pexels.com/photos/1290141/pexels-photo-1290141.jpeg"
-  },
-  {
-    icon: <Book className="h-12 w-12" />,
-    title: "Activity Rooms",
-    description: "Specially designed spaces for extracurricular activities, clubs, and collaborative learning projects.",
-    image: "https://images.pexels.com/photos/8471799/pexels-photo-8471799.jpeg"
-  }
 ];
 
 const Facilities: React.FC = () => {
   return (
     <section id="facilities" className="py-20 bg-gradient-to-b from-gray-800 to-gray-900 relative">
-      <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/2982449/pexels-photo-2982449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover bg-fixed opacity-5"></div>
-      
+      {/* Preload background image */}
+      <link rel="preload" href={img} as="image" type="image/jpeg" />
+
+      <div className="absolute inset-0 bg-cover bg-fixed opacity-5" style={{ backgroundImage: `url(${img})` }}></div>
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,15 +60,18 @@ const Facilities: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.02 }}
-              className="group relative overflow-hidden rounded-xl bg-gray-800/50 backdrop-blur-sm border border-gray-700"
+              className="group relative overflow-hidden rounded-xl bg-transparent backdrop-blur-sm border border-gray-700"
             >
               <div className="absolute inset-0">
+                {/* Preload image for each facility */}
+                <link rel="preload" href={facility.image} as="image" type="image/jpeg" />
                 <img
                   src={facility.image}
                   alt={facility.title}
-                  className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-300"
+                  className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+                  loading="lazy" // Lazy load the image
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 to-gray-900/90"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-gray-900/60 to-transparent"></div>
               </div>
               
               <div className="relative p-8">

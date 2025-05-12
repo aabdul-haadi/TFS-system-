@@ -18,12 +18,11 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      transition: opacity 1.7s ease, visibility 1.7s ease;
-      /* Slow fade-out */
-      animation: fadeIn 0.3s ease-in-out forwards;
-      /* Fast fade-in */
       opacity: 1;
       visibility: visible;
+      transition: opacity 1.7s ease, visibility 1.7s ease;
+      animation: fadeIn 0.3s ease-in-out forwards;
+      /* Fast fade-in */
     }
 
     #loader.fade-out {
@@ -55,16 +54,16 @@
       font-weight: 700;
       letter-spacing: 1px;
       margin-bottom: 0.25rem;
-      animation: fadeSlide 0.5s ease-out 0.3s forwards;
-      /* Fast fade-in */
+      animation: fadeSlide 1s ease-out 0.3s forwards;
+      /* Smooth fade-in with delay */
       opacity: 0;
     }
 
     #loader p {
       color: #cbd5e1;
       font-size: 1rem;
-      animation: fadeSlide 0.5s ease-out 0.5s forwards;
-      /* Fast fade-in */
+      animation: fadeSlide 1s ease-out 0.5s forwards;
+      /* Smooth fade-in with delay */
       opacity: 0;
     }
 
@@ -123,7 +122,7 @@
       const loader = document.getElementById('loader');
       if (loader) {
         loader.classList.add('fade-out');
-        setTimeout(() => loader.remove(), 2500); // Ensure timeout matches slow fade-out duration (2s + small buffer)
+        setTimeout(() => loader.remove(), 2000); // Ensure timeout matches the fade-out duration (2s)
       }
     });
   </script>

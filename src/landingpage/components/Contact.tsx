@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+// import React, { useEffect, useRef } from 'react';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import img from './contact.jpg'; // Import the image from the same folder
 
 const Contact: React.FC = () => {
   const fadeInUp = {
@@ -14,8 +15,8 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 relative">
-      <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/2982449/pexels-photo-2982449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover bg-center opacity-10"></div>
-      <div className="container mx-auto px-4 relative z-10">
+     <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: `url(${img})` }}></div>
+     <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           initial="hidden"
           whileInView="visible"
